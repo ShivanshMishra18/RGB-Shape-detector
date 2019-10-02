@@ -44,13 +44,12 @@ for cnt in contours:
     
     x = approx.ravel()[0]
     y = approx.ravel()[1]
-
+#tells which shape it is based on no. of edges
     if len(approx) == 3:
         shape = 'triangle'
         
     elif len(approx) == 4:
-        shape = 'rectangle'
-        
+        shape = 'rectangle'        
     elif len(approx) == 5:
         shape = 'pentagon'
 
@@ -59,7 +58,7 @@ for cnt in contours:
       
     else:
         shape = 'circle'
-        
+#puts text on the shapes        
     #cv2.putText(img2, shape, (x,y), font, 1, (255,0,0))
     cv2.putText(img, shape, (x,y), font, 1, (255,255,255))
     
@@ -72,11 +71,11 @@ for cnt in contours:
     if ((img2[y+8,x+2] <= [20,20,255]).all()):
         cv2.putText(res_r, shape, (x,y), font, 1, (0,0,255))
     
-    
+  # displays windows  
 # cv2.imshow('shapes', img)
-cv2.imshow('blue',res_b)
-cv2.imshow('green',res_g)
-cv2.imshow('red',res_r)
+cv2.imshow('blues',res_b)
+cv2.imshow('greens',res_g)
+cv2.imshow('reds',res_r)
 
 cv2.waitKey(0)
 cv2.destroyAllWindows()
